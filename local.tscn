@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bcw0mbrh3wl1q"]
+[gd_scene load_steps=2 format=3 uid="uid://bcw0mbrh3wl1q"]
+
+[ext_resource type="PackedScene" uid="uid://dtkymkp4xvqmw" path="res://character.tscn" id="1_y6l23"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,3 +16,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "you are in the local repo!
 lmao cringe"
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_y6l23")]

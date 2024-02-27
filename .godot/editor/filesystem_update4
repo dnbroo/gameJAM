@@ -1,1 +1,3 @@
+res://character.tscn
+res://modules/character/states/idle.gd
 res://local.tscn

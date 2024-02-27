@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtkymkp4xvqmw"]
+
+[ext_resource type="Script" path="res://modules/character/StateMachine.gd" id="1_rqkaq"]
+[ext_resource type="Script" path="res://modules/character/states/idle.gd" id="2_orimv"]
+[ext_resource type="Texture2D" uid="uid://06hvqtmxofew" path="res://icon.svg" id="3_pne4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dv4y"]
+size = Vector2(120, 121)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7dv4y")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_rqkaq")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body")]
+script = ExtResource("2_orimv")
+character_body = NodePath("../..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_pne4i")
