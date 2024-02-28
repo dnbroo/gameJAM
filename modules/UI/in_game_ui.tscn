@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://8sjxnkq3anit"]
+[gd_scene load_steps=7 format=3 uid="uid://8sjxnkq3anit"]
+
+[ext_resource type="Script" path="res://modules/UI/town_health_bar.gd" id="1_15bh7"]
+[ext_resource type="Resource" uid="uid://ba4tc1n6p0jwg" path="res://modules/levels/level scripts/town_health.tres" id="2_a7hie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a18e"]
 bg_color = Color(0.192157, 0.192157, 0.192157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxydy"]
-bg_color = Color(0.964706, 0, 0.176471, 1)
+bg_color = Color(0, 0.560784, 0.784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ochvn"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh5df"]
+bg_color = Color(0.839216, 0.121569, 0.215686, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -36,13 +45,14 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="open/open/open/top content"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1a18e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yxydy")
 max_value = 10.0
 step = 1.0
 value = 5.0
+show_percentage = false
 
 [node name="middle content" type="HBoxContainer" parent="open/open/open"]
 layout_mode = 2
@@ -51,6 +61,27 @@ size_flags_vertical = 3
 [node name="bottom content" type="HBoxContainer" parent="open/open/open"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="open/open/open/bottom content"]
+layout_mode = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="open/open/open/bottom content/VBoxContainer"]
+custom_minimum_size = Vector2(600, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ochvn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jh5df")
+step = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("1_15bh7")
+town_health = ExtResource("2_a7hie")
+
+[node name="Town Health" type="Label" parent="open/open/open/bottom content/VBoxContainer"]
+layout_mode = 2
+text = "Town Health"
+horizontal_alignment = 1
 
 [node name="ignore2" type="VBoxContainer" parent="open/open"]
 custom_minimum_size = Vector2(20, 0)

@@ -8,3 +8,10 @@ res://character.tscn
 res://modules/bullets/bullet-1.tscn
 res://modules/UI/in_game_ui.tscn
 res://modules/levels/town/tower-town.tscn
+res://modules/enemies/enemy_spawn_controller.gd
+res://modules/globals/global_references.gd
+res://modules/levels/level scripts/tower_initializer.gd
+res://modules/levels/level scripts/tower_health_script.gd
+res://modules/levels/level scripts/town_health.tres
+res://modules/UI/town_health_bar.gd
+res://modules/character/aim_node.gd

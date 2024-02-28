@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var aim_sprite : Sprite2D
-@export var ray_aimcast : RayCast2D
 
 var direction_to_cursor : Vector2
 var screen_size : Vector2
@@ -20,8 +19,6 @@ func _ready():
 func _process(delta):
 	mouse_position = get_global_mouse_position()
 	direction_to_cursor = global_position.direction_to(mouse_position)
-	
-	ray_aimcast.target_position = mouse_position
 	
 	aim_sprite.position = direction_to_cursor * 100
 	pass
