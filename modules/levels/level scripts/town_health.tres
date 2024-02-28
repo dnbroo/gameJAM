@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ba4tc1n6p0jwg"]
+
+[sub_resource type="GDScript" id="GDScript_swkr7"]
+script/source = "@export var current_health : int = 10
+@export var max_health : int = 10
+"
+
+[resource]
+script = SubResource("GDScript_swkr7")
+current_health = 100
+max_health = 100

@@ -15,6 +15,10 @@ run/main_scene="res://modules/levels/town/town.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalReferences="*res://modules/globals/global_references.gd"
+
 [input]
 
 move_left={
@@ -50,3 +54,4 @@ attack={
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="projectiles"
 2d_physics/layer_5="aoe"
+2d_physics/layer_6="tower"

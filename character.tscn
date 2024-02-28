@@ -55,14 +55,11 @@ text = "state"
 script = ExtResource("6_mlfs1")
 state_machine = NodePath("../StateMachine")
 
-[node name="aim_node" type="Node2D" parent="." node_paths=PackedStringArray("aim_sprite", "ray_aimcast")]
+[node name="aim_node" type="Node2D" parent="." node_paths=PackedStringArray("aim_sprite")]
 script = ExtResource("8_6s4h5")
 aim_sprite = NodePath("aim_Sprite")
-ray_aimcast = NodePath("../aim_cast")
 
 [node name="aim_Sprite" type="Sprite2D" parent="aim_node"]
 position = Vector2(100, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_pne4i")
-
-[node name="aim_cast" type="RayCast2D" parent="."]

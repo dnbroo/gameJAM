@@ -17,6 +17,9 @@ layer_0/tile_data = PackedInt32Array(-393228, 589824, 2, -327692, 589824, 2, -26
 mob_scene = ExtResource("3_cswdm")
 mob_spawn_timer = NodePath("mob_spawn_timer")
 
+[node name="mob_spawn_timer" parent="world/spawn_line" index="0"]
+wait_time = 0.3
+
 [node name="CharacterBody2D" parent="." index="1" instance=ExtResource("2_hyrvy")]
 position = Vector2(-321, 253)
 
