@@ -1,8 +1,4 @@
 res://character.tscn
-res://modules/character/states/idle.gd
-res://local.tscn
 res://modules/character/player_information.tres
-res://walking.gd
-res://modules/character/State.gd
-res://modules/character/StateMachine.gd
-res://modules/character/states/state.gd
+res://local.tscn
+res://modules/character/states/attack.gd
