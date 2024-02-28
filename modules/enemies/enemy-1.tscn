@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://d07naiwcomsa7"]
+
+[ext_resource type="Texture2D" uid="uid://06hvqtmxofew" path="res://icon.svg" id="1_7n80w"]
+[ext_resource type="Script" path="res://modules/enemies/base_scripts/enemy_attack_sm.gd" id="1_f7xxw"]
+[ext_resource type="Script" path="res://modules/enemies/base_scripts/health_node.gd" id="2_0hthv"]
+[ext_resource type="Script" path="res://modules/enemies/base_scripts/health_bar.gd" id="4_v0tlj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1ede"]
+size = Vector2(121, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxk4o"]
+size = Vector2(122, 121)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atmwu"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjmpy"]
+bg_color = Color(0.917647, 0, 0, 1)
+
+[node name="enemy" type="RigidBody2D" node_paths=PackedStringArray("health_node")]
+collision_layer = 4
+collision_mask = 8
+gravity_scale = 0.0
+script = ExtResource("1_f7xxw")
+health_node = NodePath("health_node")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_u1ede")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.470588, 0.4, 1)
+texture = ExtResource("1_7n80w")
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(-9, -7, -29, -15)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(11, -9, 31, -17)
+default_color = Color(1, 0, 0, 1)
+
+[node name="health_node" type="Node2D" parent="."]
+script = ExtResource("2_0hthv")
+max_health = 10
+
+[node name="enemyarea2d" type="Area2D" parent="health_node"]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="health_node/enemyarea2d"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_sxk4o")
+
+[node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_node")]
+offset_left = -48.0
+offset_top = -75.0
+offset_right = 52.0
+offset_bottom = -65.0
+theme_override_styles/background = SubResource("StyleBoxFlat_atmwu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rjmpy")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+script = ExtResource("4_v0tlj")
+health_node = NodePath("../health_node")
+
+[connection signal="area_shape_entered" from="health_node/enemyarea2d" to="." method="_on_area_2d_area_shape_entered"]

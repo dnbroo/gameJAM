@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 
 @export var bullet_speed : float

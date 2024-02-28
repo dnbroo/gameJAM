@@ -23,7 +23,7 @@ func state_check(delta):
 	if player_axis(delta) != Vector2.ZERO:
 		move(movement_state)
 		
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		move(attack_state)
 	pass
 	

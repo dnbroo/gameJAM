@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxlk2x5wuod50"]
+[gd_scene load_steps=4 format=3 uid="uid://bxlk2x5wuod50"]
 
 [ext_resource type="Script" path="res://modules/bullets/bullet-1.gd" id="1_bfcrs"]
 [ext_resource type="Texture2D" uid="uid://06hvqtmxofew" path="res://icon.svg" id="2_573cw"]
 
-[node name="bullet" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_acgjf"]
+radius = 6.0
+
+[node name="bullet_area_2d" type="Area2D" groups=["projectile"]]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_bfcrs")
 bullet_speed = 75.0
 distance = 4.0
@@ -11,3 +16,6 @@ distance = 4.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_573cw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_acgjf")

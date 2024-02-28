@@ -34,7 +34,7 @@ func state_check(delta):
 	if character_body.velocity == Vector2.ZERO:
 		move(idle_state)
 		
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		move(attack_state)
 	pass
 

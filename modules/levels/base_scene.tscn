@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0052aymlbiyf"]
+[gd_scene load_steps=6 format=3 uid="uid://d0052aymlbiyf"]
 
 [ext_resource type="Texture2D" uid="uid://nm86e3uqmecb" path="res://modules/levels/town/autotile_template_3x3_minimal.png" id="1_tsota"]
+[ext_resource type="Script" path="res://modules/enemies/enemy_spawn_controller.gd" id="2_6cp1k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aow14"]
 texture = ExtResource("1_tsota")
@@ -58,6 +59,12 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_aow14")
 
+[sub_resource type="Curve2D" id="Curve2D_1fum0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1952, -1253, 0, 0, 0, 0, 2321, -1247, 0, 0, 0, 0, 2345, 1054, 0, 0, 0, 0, -1952, 1048, 0, 0, 0, 0, -1952, -1253)
+}
+point_count = 5
+
 [node name="BaseScene" type="Node2D"]
 
 [node name="world" type="Node2D" parent="."]
@@ -72,3 +79,21 @@ format = 2
 [node name="lights" type="Node2D" parent="world"]
 
 [node name="enemies" type="Node2D" parent="world"]
+
+[node name="spawn_line" type="Node2D" parent="world" node_paths=PackedStringArray("mob_spawner", "mob_spawn_location")]
+script = ExtResource("2_6cp1k")
+mob_spawner = NodePath("mob_spawn/mob_spawner")
+mob_spawn_location = NodePath("mobs")
+
+[node name="mob_spawn_timer" type="Timer" parent="world/spawn_line"]
+
+[node name="mob_spawn" type="Path2D" parent="world/spawn_line"]
+curve = SubResource("Curve2D_1fum0")
+
+[node name="mob_spawner" type="PathFollow2D" parent="world/spawn_line/mob_spawn"]
+position = Vector2(-1952, -1253)
+rotation = 0.00140416
+
+[node name="mobs" type="Node2D" parent="world/spawn_line"]
+
+[connection signal="timeout" from="world/spawn_line/mob_spawn_timer" to="world/spawn_line" method="_on_mob_spawn_timer_timeout"]
