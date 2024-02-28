@@ -1,6 +1,6 @@
+State
 Label
 Node
-State
 CollisionShape2D
 CollisionPolygon2D
 Sprite2D
