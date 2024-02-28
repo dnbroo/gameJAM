@@ -2,9 +2,12 @@
 
 [sub_resource type="GDScript" id="GDScript_lly16"]
 script/source = "@export var player_movement_speed : float = 100
-@export var player_max_movement_speed : float = 100"
+@export var player_max_movement_speed : float = 100
+
+@export var attack_delay : float = .25"
 
 [resource]
 script = SubResource("GDScript_lly16")
-player_movement_speed = 150.0
-player_max_movement_speed = 150.0
+player_movement_speed = 100.0
+player_max_movement_speed = 100.0
+attack_delay = 0.25

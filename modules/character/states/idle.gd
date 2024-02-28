@@ -3,6 +3,7 @@ extends State
 @export var character_body : CharacterBody2D
 @export var player_resource : Resource
 @export var movement_state : State
+@export var attack_state : State
 
 var direction : Vector2
 
@@ -21,6 +22,9 @@ func physics_update(delta : float):
 func state_check(delta):
 	if player_axis(delta) != Vector2.ZERO:
 		move(movement_state)
+		
+	if Input.is_action_just_pressed("attack"):
+		move(attack_state)
 	pass
 	
 func player_axis(delta):

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtkymkp4xvqmw"]
+[gd_scene load_steps=9 format=3 uid="uid://dtkymkp4xvqmw"]
 
 [ext_resource type="Script" path="res://modules/character/StateMachine.gd" id="1_rqkaq"]
 [ext_resource type="Script" path="res://modules/character/states/idle.gd" id="2_orimv"]
 [ext_resource type="Script" path="res://walking.gd" id="3_825xn"]
 [ext_resource type="Texture2D" uid="uid://06hvqtmxofew" path="res://icon.svg" id="3_pne4i"]
 [ext_resource type="Resource" uid="uid://vet0nrc2le5f" path="res://modules/character/player_information.tres" id="3_uatnq"]
+[ext_resource type="Script" path="res://modules/character/states/attack.gd" id="5_uen8s"]
 [ext_resource type="Script" path="res://modules/character/states/state.gd" id="6_mlfs1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dv4y"]
@@ -20,17 +21,25 @@ shape = SubResource("RectangleShape2D_7dv4y")
 script = ExtResource("1_rqkaq")
 initial_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "movement_state")]
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "movement_state", "attack_state")]
 script = ExtResource("2_orimv")
 character_body = NodePath("../..")
 player_resource = ExtResource("3_uatnq")
 movement_state = NodePath("../walking")
+attack_state = NodePath("../attack")
 
-[node name="walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "idle_state")]
+[node name="walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "idle_state", "attack_state")]
 script = ExtResource("3_825xn")
 character_body = NodePath("../..")
 player_resource = ExtResource("3_uatnq")
 idle_state = NodePath("../idle")
+attack_state = NodePath("../attack")
+
+[node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "idle")]
+script = ExtResource("5_uen8s")
+character_body = NodePath("../..")
+player_resource = ExtResource("3_uatnq")
+idle = NodePath("../idle")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_pne4i")
