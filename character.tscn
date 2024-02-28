@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtkymkp4xvqmw"]
+[gd_scene load_steps=10 format=3 uid="uid://dtkymkp4xvqmw"]
 
 [ext_resource type="Script" path="res://modules/character/StateMachine.gd" id="1_rqkaq"]
 [ext_resource type="Script" path="res://modules/character/states/idle.gd" id="2_orimv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://vet0nrc2le5f" path="res://modules/character/player_information.tres" id="3_uatnq"]
 [ext_resource type="Script" path="res://modules/character/states/attack.gd" id="5_uen8s"]
 [ext_resource type="Script" path="res://modules/character/states/state.gd" id="6_mlfs1"]
+[ext_resource type="Script" path="res://modules/character/aim_node.gd" id="8_6s4h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dv4y"]
 size = Vector2(120, 121)
@@ -35,11 +36,12 @@ player_resource = ExtResource("3_uatnq")
 idle_state = NodePath("../idle")
 attack_state = NodePath("../attack")
 
-[node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "idle")]
+[node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "idle", "aim_node")]
 script = ExtResource("5_uen8s")
 character_body = NodePath("../..")
 player_resource = ExtResource("3_uatnq")
 idle = NodePath("../idle")
+aim_node = NodePath("../../aim_node")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_pne4i")
@@ -52,3 +54,15 @@ offset_bottom = -60.0
 text = "state"
 script = ExtResource("6_mlfs1")
 state_machine = NodePath("../StateMachine")
+
+[node name="aim_node" type="Node2D" parent="." node_paths=PackedStringArray("aim_sprite", "ray_aimcast")]
+script = ExtResource("8_6s4h5")
+aim_sprite = NodePath("aim_Sprite")
+ray_aimcast = NodePath("../aim_cast")
+
+[node name="aim_Sprite" type="Sprite2D" parent="aim_node"]
+position = Vector2(100, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_pne4i")
+
+[node name="aim_cast" type="RayCast2D" parent="."]

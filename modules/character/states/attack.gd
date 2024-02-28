@@ -3,9 +3,11 @@ extends "res://modules/character/State.gd"
 @export var character_body : CharacterBody2D
 @export var player_resource : Resource
 @export var idle : State
+@export var aim_node : Node2D
 
 
 func on_enter():
+	aim_node.fire()
 	await get_tree().create_timer(player_resource.attack_delay).timeout
 	move(idle)
 	pass

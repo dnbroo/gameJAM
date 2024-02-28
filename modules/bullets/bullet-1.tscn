@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxlk2x5wuod50"]
+
+[ext_resource type="Script" path="res://modules/bullets/bullet-1.gd" id="1_bfcrs"]
+[ext_resource type="Texture2D" uid="uid://06hvqtmxofew" path="res://icon.svg" id="2_573cw"]
+
+[node name="bullet" type="Node2D"]
+script = ExtResource("1_bfcrs")
+bullet_speed = 75.0
+distance = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_573cw")

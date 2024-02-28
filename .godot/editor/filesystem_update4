@@ -1,6 +1,9 @@
-res://local.tscn
-res://modules/character/player_information.tres
-res://modules/levels/base_scene.tscn
-res://modules/character/states/idle.gd
-res://modules/levels/town/town.tscn
 res://character.tscn
+res://modules/character/player_information.tres
+res://local.tscn
+res://modules/levels/base_scene.tscn
+res://modules/levels/town/town.tscn
+res://modules/character/aim_node.gd
+res://modules/bullets/bullet-1.tscn
+res://modules/bullets/bullet-1.gd
+res://modules/character/states/attack.gd

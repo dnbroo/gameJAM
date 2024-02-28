@@ -1,11 +1,12 @@
+Sprite2D
+RayCast2D
+Node2D
 Camera2D
 TileMap
-Node2D
 Label
 Node
 State
 CollisionShape2D
 CollisionPolygon2D
-Sprite2D
 StateMachine
 CharacterBody2D

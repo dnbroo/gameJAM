@@ -1,5 +1,6 @@
+res://modules/bullets
+res://modules/character
 res://modules/levels/town
 res://modules/levels
 res://modules/character/states
-res://modules/character
 res://
