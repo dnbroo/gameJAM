@@ -5,9 +5,6 @@ extends State
 @export var movement_state : State
 
 var direction : Vector2
-var speed = 1500
-var SPEED = 100
-var max_speed = 1500
 
 func on_enter():
 	pass

@@ -6,5 +6,5 @@ script/source = "@export var player_movement_speed : float = 100
 
 [resource]
 script = SubResource("GDScript_lly16")
-player_movement_speed = 100.0
-player_max_movement_speed = 100.0
+player_movement_speed = 150.0
+player_max_movement_speed = 150.0
