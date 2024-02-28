@@ -33,6 +33,7 @@ func _physics_process(delta):
 		switch_states(current_state.next_state)
 		
 	current_state.physics_update(delta)
+	current_state.state_check(delta)
 	
 
 func switch_states(new_state : State):
