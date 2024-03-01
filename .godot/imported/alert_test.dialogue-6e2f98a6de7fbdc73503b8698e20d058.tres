@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rhfse"]
+
+[resource]
+script = ExtResource("1_rhfse")
+using_states = PackedStringArray()
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("WARNING")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "start",
+"type": "title"
+},
+"3": {
+"character": "WARNING",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "INVASION INCOMING!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "INVASION INCOMING!!!",
+"type": "dialogue"
+},
+"4": {
+"id": "4",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "emit",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "my_signal"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "signal emitted"
+}])])
+}])
+},
+"next_id": "5",
+"type": "mutation"
+},
+"5": {
+"id": "5",
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+}
+}
+raw_text = "~ start
+
+WARNING: INVASION INCOMING!!!
+do emit(\"my_signal\", \"signal emitted\")
+=> END"
+metadata/dialogue_manager_version = "2.35.0"

@@ -1,0 +1,5 @@
+~ start
+
+WARNING: INVASION INCOMING!!!
+do emit("my_signal", "signal emitted")
+=> END

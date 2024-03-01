@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c3kiawf2bki3h"
+path="res://.godot/imported/alert_test.dialogue-6e2f98a6de7fbdc73503b8698e20d058.tres"
+
+[deps]
+
+source_file="res://dialog/alert_test.dialogue"
+dest_files=["res://.godot/imported/alert_test.dialogue-6e2f98a6de7fbdc73503b8698e20d058.tres"]
+
+[params]
+
+defaults=true

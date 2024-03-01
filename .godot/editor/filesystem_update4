@@ -7,3 +7,5 @@ res://modules/bullets/bullet-1.tscn
 res://modules/UI/in_game_ui.tscn
 res://modules/enemies/enemy-1.tscn
 res://modules/levels/town/tower-town.tscn
+res://modules/globals/global_references.gd
+res://modules/globals/global_transitions.gd
