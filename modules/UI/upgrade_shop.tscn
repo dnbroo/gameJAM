@@ -1,7 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://5dica88tiw3l"]
+[gd_scene load_steps=8 format=3 uid="uid://5dica88tiw3l"]
+
+[ext_resource type="Theme" uid="uid://vvrsuveixw4y" path="res://modules/UI/ui_theme.tres" id="1_txryj"]
+[ext_resource type="Script" path="res://modules/UI/upgrade_script.gd" id="1_w2gon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucmkt"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtt5d"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvlp4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05yci"]
 bg_color = Color(0.247059, 0.247059, 0.247059, 1)
@@ -16,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w2gon")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -79,13 +92,367 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 
 [node name="Left" type="VBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle"]
-custom_minimum_size = Vector2(250, 400)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ucmkt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="ITEM" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM2" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM2"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM2/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM2/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM2/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM2/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM3" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM3"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM3/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM3/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM3/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM3/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM3/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM4" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM4"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM4/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM4/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM4/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM4/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM4/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM5" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM5"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM5/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM5/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM5/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM5/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM5/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM6" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM6"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM6/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM6/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM6/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM6/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM6/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM7" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM7"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM7/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM7/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM7/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM7/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM7/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
+
+[node name="ITEM8" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM8"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme = ExtResource("1_txryj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM8/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM8/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM8/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtt5d")
+
+[node name="Container" type="Container" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM8/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Left/PanelContainer/MarginContainer/Panel/ScrollContainer/GridContainer/ITEM8/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+label_settings = SubResource("LabelSettings_kvlp4")
 
 [node name="Middle" type="VBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle"]
 custom_minimum_size = Vector2(350, 400)
@@ -96,6 +463,63 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_05yci")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle/Middle/Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+alignment = 1
 
 [node name="Right" type="VBoxContainer" parent="VBoxContainer/Middle/Middle/Panel/Left/Middle/Left/Middle"]
 visible = false

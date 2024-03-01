@@ -6,8 +6,10 @@ extends Node2D
 #this lets us pick our mob
 @export var mob_scene : PackedScene
 
+#this is where we put our mobs while the game is running
 @export var mob_spawn_location : Node2D
 
+#this is the interval on when to spawn the mobs
 @export var mob_spawn_timer : Timer
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +24,7 @@ func _process(delta):
 
 
 func _on_mob_spawn_timer_timeout():
-	print('timer up')
+	print('Spawning enemy.')
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 

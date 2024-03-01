@@ -1,9 +1,9 @@
-res://modules/globals
+res://modules/UI
 res://modules/levels/level scripts
+res://modules/globals
 res://modules/enemies/base_scripts
 res://modules/levels/town
 res://modules/enemies
-res://modules/UI
 res://modules/bullets
 res://modules/character
 res://modules/levels

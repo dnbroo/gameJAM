@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0052aymlbiyf"]
+[gd_scene load_steps=7 format=3 uid="uid://d0052aymlbiyf"]
 
 [ext_resource type="Texture2D" uid="uid://nm86e3uqmecb" path="res://modules/levels/town/autotile_template_3x3_minimal.png" id="1_tsota"]
 [ext_resource type="Script" path="res://modules/enemies/enemy_spawn_controller.gd" id="2_6cp1k"]
+[ext_resource type="PackedScene" uid="uid://d07naiwcomsa7" path="res://modules/enemies/enemy-1.tscn" id="3_q5k21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aow14"]
 texture = ExtResource("1_tsota")
@@ -80,10 +81,12 @@ format = 2
 
 [node name="enemies" type="Node2D" parent="world"]
 
-[node name="spawn_line" type="Node2D" parent="world" node_paths=PackedStringArray("mob_spawner", "mob_spawn_location")]
+[node name="spawn_line" type="Node2D" parent="world" node_paths=PackedStringArray("mob_spawner", "mob_spawn_location", "mob_spawn_timer")]
 script = ExtResource("2_6cp1k")
 mob_spawner = NodePath("mob_spawn/mob_spawner")
+mob_scene = ExtResource("3_q5k21")
 mob_spawn_location = NodePath("mobs")
+mob_spawn_timer = NodePath("mob_spawn_timer")
 
 [node name="mob_spawn_timer" type="Timer" parent="world/spawn_line"]
 
