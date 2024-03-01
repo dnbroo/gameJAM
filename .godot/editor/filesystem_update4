@@ -1,7 +1,8 @@
-res://modules/levels/town/town.tscn
+res://modules/UI/upgrade_shop.tscn
 res://modules/levels/level scripts/town_health.tres
 res://modules/character/player_information.tres
 res://modules/levels/base_scene.tscn
+res://modules/levels/town/town.tscn
 res://character.tscn
 res://modules/bullets/bullet-1.tscn
 res://modules/UI/in_game_ui.tscn
